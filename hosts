@@ -1,0 +1,6 @@
+[kernel]
+builder1
+builder2
+
+[kernel-builders:children]
+kernel
