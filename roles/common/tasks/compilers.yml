@@ -1,8 +1,9 @@
 ---
 - name: Get Linao GCC aarch64 Linux GNU
   get_url:
-    url: https://releases.linaro.org/components/toolchain/binaries/5.3-2016.05/aarch64-linux-gnu/gcc-linaro-5.3.1-2016.05-x86_64_aarch64-linux-gnu.tar.xz
-    dest: /usr/gcc-linaro-5.3.1-2016.05-x86_64_aarch64-linux-gnu.tar.xz
+    url: "https://releases.linaro.org/components/toolchain/binaries/5.3-2016.05/aarch64-linux-gnu/gcc-linaro-5.3.1-2016.05-x86_64_aarch64-linux-gnu.tar.xz"
+    dest: "/usr/gcc-linaro-5.3.1-2016.05-x86_64_aarch64-linux-gnu.tar.xz"
+    force: no
     checksum: md5:24ac2e26f50f49f3043f281440b41bba
   tags:
     - compiler
@@ -11,19 +12,24 @@
 - name: Install Linaro GCC aarch64 Linux GNU
   unarchive:
     remote_src: yes
-    src: /usr/gcc-linaro-5.3.1-2016.05-x86_64_aarch64-linux-gnu.tar.xz
-    dest: /usr/
+    src: "/usr/gcc-linaro-5.3.1-2016.05-x86_64_aarch64-linux-gnu.tar.xz"
+    dest: "/usr/"
+    # Locally comment out when changing the compiler version in order to work.
+    creates: "/usr/aarch64-linux-gnu"
     extra_opts:
       - --strip-components=1
       - -J
+    owner: root
+    group: root
   tags:
     - compiler
     - install
 
 - name: Get Linaro GCC arm Linux gnueabihf
   get_url:
-    url: https://releases.linaro.org/components/toolchain/binaries/5.3-2016.05/arm-linux-gnueabihf/gcc-linaro-5.3.1-2016.05-x86_64_arm-linux-gnueabihf.tar.xz
-    dest: /usr/gcc-linaro-5.3.1-2016.05-x86_64_arm-linux-gnueabihf.tar.xz
+    url: "https://releases.linaro.org/components/toolchain/binaries/5.3-2016.05/arm-linux-gnueabihf/gcc-linaro-5.3.1-2016.05-x86_64_arm-linux-gnueabihf.tar.xz"
+    dest: "/usr/gcc-linaro-5.3.1-2016.05-x86_64_arm-linux-gnueabihf.tar.xz"
+    force: no
     checksum: md5:9815a2f56fea6f1ff14905ab5997326a
   tags:
     - compiler
@@ -32,19 +38,24 @@
 - name: Install Linaro GCC arm Linux gnueabihf
   unarchive:
     remote_src: yes
-    src: /usr/gcc-linaro-5.3.1-2016.05-x86_64_arm-linux-gnueabihf.tar.xz
-    dest: /usr/
+    src: "/usr/gcc-linaro-5.3.1-2016.05-x86_64_arm-linux-gnueabihf.tar.xz"
+    dest: "/usr/"
+    # Locally comment out when changing the compiler version in order to work.
+    creates: "/usr/arm-linux-gnueabihf"
     extra_opts:
       - --strip-components=1
       - -J
+    owner: root
+    group: root
   tags:
     - compiler
     - install
 
 - name: Get mips Linux GNU
   get_url:
-    url: https://sourcery.mentor.com/GNUToolchain/package14486/public/mips-linux-gnu/mips-2016.05-8-mips-linux-gnu-i686-pc-linux-gnu.tar.bz2
-    dest: /usr/mips-2016.05-8-mips-linux-gnu-i686-pc-linux-gnu.tar.bz2
+    url: "https://sourcery.mentor.com/GNUToolchain/package14486/public/mips-linux-gnu/mips-2016.05-8-mips-linux-gnu-i686-pc-linux-gnu.tar.bz2"
+    force: no
+    dest: "/usr/mips-2016.05-8-mips-linux-gnu-i686-pc-linux-gnu.tar.bz2"
     checksum: md5:ba4b96ecaa009d3bd8f1103effcde4c2
   tags:
     - compiler
@@ -53,11 +64,15 @@
 - name: Install mips Linux GNU
   unarchive:
     remote_src: yes
-    src: /usr/mips-2016.05-8-mips-linux-gnu-i686-pc-linux-gnu.tar.bz2
-    dest: /usr/
+    src: "/usr/mips-2016.05-8-mips-linux-gnu-i686-pc-linux-gnu.tar.bz2"
+    dest: "/usr/"
+    # Locally comment out when changing the compiler version in order to work.
+    creates: "/usr/mips-linux-gnu"
     extra_opts:
       - --strip-components=1
       - -a
+    owner: root
+    group: root
   tags:
     - compiler
     - install
