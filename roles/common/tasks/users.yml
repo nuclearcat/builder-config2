@@ -1,9 +1,16 @@
 ---
+- name: Craete the build group
+  group:
+    name: buildslave
+    state: present
+  tags:
+    - install
+    - user
+
 - name: Create the build user
   user:
     name: buildslave
     group: buildslave
-    groups: sudo
     home: /home/buildslave
     shell: /bin/bash
     state: present
