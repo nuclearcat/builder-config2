@@ -1,6 +1,6 @@
-[kernel]
+[linaro]
 builder1
 builder2
 
 [kernel-builders:children]
-kernel
+linaro
