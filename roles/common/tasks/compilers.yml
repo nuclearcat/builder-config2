@@ -15,7 +15,7 @@
     src: "/usr/gcc-linaro-5.3.1-2016.05-x86_64_aarch64-linux-gnu.tar.xz"
     dest: "/usr/"
     # Locally comment out when changing the compiler version in order to work.
-    creates: "/usr/aarch64-linux-gnu"
+    # creates: "/usr/aarch64-linux-gnu"
     extra_opts:
       - --strip-components=1
       - -J
@@ -41,7 +41,7 @@
     src: "/usr/gcc-linaro-5.3.1-2016.05-x86_64_arm-linux-gnueabihf.tar.xz"
     dest: "/usr/"
     # Locally comment out when changing the compiler version in order to work.
-    creates: "/usr/arm-linux-gnueabihf"
+    # creates: "/usr/arm-linux-gnueabihf"
     extra_opts:
       - --strip-components=1
       - -J
@@ -67,7 +67,7 @@
     src: "/usr/mips-2016.05-8-mips-linux-gnu-i686-pc-linux-gnu.tar.bz2"
     dest: "/usr/"
     # Locally comment out when changing the compiler version in order to work.
-    creates: "/usr/mips-linux-gnu"
+    # creates: "/usr/mips-linux-gnu"
     extra_opts:
       - --strip-components=1
       - -a
