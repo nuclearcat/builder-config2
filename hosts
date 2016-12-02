@@ -1,6 +1,12 @@
 [linaro]
-builder1
-builder2
+kbuilder1
+kbuilder2
+kbuilder3
+kbuilder4
+kbuilder5
+kbuilder6
+kbuilder7
+kbuilder8
 
 [kernel-builders:children]
 linaro
