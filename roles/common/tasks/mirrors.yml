@@ -43,7 +43,7 @@
 - name: Setup the mirror update cron job
   cron:
     name: "Update mirrors"
-    cron_file: "update-mirrros"
+    cron_file: "update-mirrors"
     user: root
     state: present
     job: "/srv/mirrors/update_mirror.sh /srv/mirrors/linux.git"
