@@ -14,8 +14,11 @@
   with_items:
     - bc
     - build-essential
+    - ccache
     - cron
     - curl
+    - distcc
+    - distcc-pump
     - git-core
     - htop
     - libelf-dev
