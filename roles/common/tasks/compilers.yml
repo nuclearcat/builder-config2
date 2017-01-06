@@ -74,7 +74,7 @@
     - install
 
 - stat:
-    path: "/usr/mips-2016.05-8-mips-linux-gnu-i686-pc-linux-gnu.tar.bz2"
+    path: "/usr/gcc-6.3.0-mips-linux.tar.bz2"
   register: mips_compiler
   tags:
     - compiler
@@ -82,10 +82,10 @@
 
 - name: Get mips Linux GNU
   get_url:
-    url: "https://sourcery.mentor.com/GNUToolchain/package14486/public/mips-linux-gnu/mips-2016.05-8-mips-linux-gnu-i686-pc-linux-gnu.tar.bz2"
+    url: "https://storage.kernelci.org/images/toolchain/gcc-6.3.0-mips-linux.tar.bz2"
     force: no
-    dest: "/usr/mips-2016.05-8-mips-linux-gnu-i686-pc-linux-gnu.tar.bz2"
-    checksum: md5:ba4b96ecaa009d3bd8f1103effcde4c2
+    dest: "/usr/gcc-6.3.0-mips-linux.tar.bz2"
+    checksum: md5:f8b05e98fce2dacc8479974d2d6c2b04
   tags:
     - compiler
     - install
@@ -93,10 +93,8 @@
 - name: Install mips Linux GNU
   unarchive:
     remote_src: yes
-    src: "/usr/mips-2016.05-8-mips-linux-gnu-i686-pc-linux-gnu.tar.bz2"
+    src: "/usr/gcc-6.3.0-mips-linux.tar.bz2"
     dest: "/usr/"
-    # Locally comment out when changing the compiler version in order to work.
-    # creates: "/usr/mips-linux-gnu"
     extra_opts:
       - --strip-components=1
       - -a
