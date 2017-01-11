@@ -6,7 +6,6 @@ kbuilder4
 kbuilder5
 kbuilder6
 kbuilder7
-kbuilder8
 
 [kernel-builders:children]
 linaro
