@@ -1,4 +1,4 @@
 site.retry
 *.retry
-host_vars/*
-group_vars/*
+host_vars
+group_vars
