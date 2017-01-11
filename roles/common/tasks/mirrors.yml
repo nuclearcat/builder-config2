@@ -28,6 +28,9 @@
 
 - name: Add remote URLs to the mirror
   command: "/srv/mirrors/add_remotes.sh"
+  tags:
+    - mirror
+    - remotes
 
 - name: Deploy the mirror update script
   copy:
@@ -47,6 +50,7 @@
     user: root
     state: present
     job: "/srv/mirrors/update_mirror.sh /srv/mirrors/linux.git"
-    minute: "*/20"
+    minute: "20"
   tags:
     - mirror
+    - cron
