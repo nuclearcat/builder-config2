@@ -79,6 +79,7 @@
   tags:
     - compiler
     - install
+    - mips
 
 - name: Get mips Linux GNU
   get_url:
@@ -89,6 +90,7 @@
   tags:
     - compiler
     - install
+    - mips
 
 - name: Install mips Linux GNU
   unarchive:
@@ -104,3 +106,4 @@
   tags:
     - compiler
     - install
+    - mips
