@@ -30,6 +30,7 @@
     - msmtp
     - python
     - python-keyring
+    - python-requests
     - unzip
     - zlib1g:i386
   tags:
