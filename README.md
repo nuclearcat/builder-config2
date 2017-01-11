@@ -60,6 +60,13 @@ For example:
 
 The latter is limited to `kbuilder6` and `kbuilder7` only.
 
+Other examples:
+
+    ansible -i hosts -m apt -a "name=$PACKAGE_NAME" linaro # Installs a single package across all "linaro" hosts
+
+The `-m` switch enables to use a single ansible module from all the
+[available ones](http://docs.ansible.com/ansible/list_of_all_modules.html).
+
 ### Notes
 
 * The `$HOST_GROUP_NAME` name is the name given, between square brackets, in
