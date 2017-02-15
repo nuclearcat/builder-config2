@@ -16,7 +16,7 @@
     - compiler
     - install
 
-- name: Get Linao GCC aarch64 Linux GNU
+- name: Get Linaro GCC aarch64 Linux GNU
   get_url:
     url: "https://releases.linaro.org/components/toolchain/binaries/5.3-2016.05/aarch64-linux-gnu/gcc-linaro-5.3.1-2016.05-x86_64_aarch64-linux-gnu.tar.xz"
     dest: "/usr/gcc-linaro-5.3.1-2016.05-x86_64_aarch64-linux-gnu.tar.xz"
