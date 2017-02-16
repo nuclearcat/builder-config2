@@ -24,6 +24,8 @@
     - libelf-dev
     - libgcc1:i386
     - libncurses5:i386
+    - libisl15
+    - libisl15:i386
     - libssl-dev
     - libstdc++6:i386
     - lzop
