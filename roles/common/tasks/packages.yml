@@ -34,6 +34,7 @@
     - python-keyring
     - python-pyelftools
     - python-requests
+    - u-boot-tools
     - unzip
     - zlib1g:i386
   tags:
