@@ -1,4 +1,67 @@
 ---
+- name: Create dedicated deploy user for other builders
+  when: deploy_user is defined
+  user:
+    name: "{{ deploy_user }}"
+    group: root
+    uid: 0
+    comment: "KernelCi ansible deployment user (as root)"
+    home: "/root/{{ deploy_user }}"
+    shell: /bin/bash
+    non_unique: true
+  tags:
+    - setup
+    - user
+
+- name: Create the deploy user ssh dir
+  when: deploy_user is defined
+  file:
+    path: "/root/{{ deploy_user }}/.ssh"
+    state: directory
+    owner: root
+    group: root
+    mode: 0700
+  tags:
+    - user
+    - setup
+
+- name: Setup the authorized_keys file for the deploy user
+  when: deploy_user is defined
+  copy:
+    src: authorized_keys
+    dest: "/root/{{ deploy_user }}/.ssh/authorized_keys"
+    owner: root
+    group: root
+    mode: 0600
+  tags:
+    - user
+    - setup
+
+
+- name: Create the root user ssh dir
+  when: deploy_user is not defined
+  file:
+    path: "/root/.ssh"
+    state: directory
+    owner: root
+    group: root
+    mode: 0700
+  tags:
+    - user
+    - setup
+
+- name: Setup the authorized_keys file for the root user
+  when: deploy_user is not defined
+  copy:
+    src: authorized_keys
+    dest: "/root/.ssh/authorized_keys"
+    owner: root
+    group: root
+    mode: 0600
+  tags:
+    - user
+    - setup
+
 - name: Craete the build group
   group:
     name: buildslave
@@ -11,6 +74,7 @@
   user:
     name: buildslave
     group: buildslave
+    comment: "KernelCi build slave user"
     home: /home/buildslave
     shell: /bin/bash
     state: present
