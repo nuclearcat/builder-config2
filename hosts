@@ -1,16 +1,16 @@
 [collabora]
 master
-kbuilder1
-kbuilder2
+builder01
+builder02
 
 [linaro]
-kbuilder3
-kbuilder4
-kbuilder5
-kbuilder6
-kbuilder7
-kbuilder8
-kbuilder9
+builder03
+builder04
+builder05
+builder06
+builder07
+builder08
+builder09
 
 [kernel-builders:children]
 collabora
