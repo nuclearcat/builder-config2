@@ -1,11 +1,17 @@
-[linaro]
+[collabora]
+master
 kbuilder1
 kbuilder2
+
+[linaro]
 kbuilder3
 kbuilder4
 kbuilder5
 kbuilder6
 kbuilder7
+kbuilder8
+kbuilder9
 
 [kernel-builders:children]
+collabora
 linaro
