@@ -32,6 +32,7 @@
     - msmtp
     - python
     - python-keyring
+    - python-pyelftools
     - python-requests
     - unzip
     - zlib1g:i386
