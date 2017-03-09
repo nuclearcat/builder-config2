@@ -50,7 +50,7 @@
     user: root
     state: present
     job: "/srv/mirrors/update_mirror.sh /srv/mirrors/linux.git"
-    minute: "20"
+    minute: "*/20"
   tags:
     - mirror
     - cron
