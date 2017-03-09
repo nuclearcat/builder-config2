@@ -25,6 +25,7 @@
     mode: 755
   tags:
     - mirror
+    - remotes
 
 - name: Add remote URLs to the mirror
   command: "/srv/mirrors/add_remotes.sh"
@@ -42,6 +43,8 @@
     mode: 755
   tags:
     - mirror
+    - cron
+    - update
 
 - name: Setup the mirror update cron job
   cron:
