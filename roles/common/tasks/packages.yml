@@ -30,6 +30,7 @@
     - libstdc++6:i386
     - lzop
     - msmtp
+    - ncurses-dev
     - python
     - python-keyring
     - python-pyelftools
