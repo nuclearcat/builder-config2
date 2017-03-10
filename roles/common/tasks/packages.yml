@@ -15,6 +15,7 @@
     - bc
     - build-essential
     - ccache
+    - cpio
     - cron
     - curl
     - distcc
