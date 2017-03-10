@@ -1,4 +1,13 @@
 ---
+- name: Copy the gitconfig file
+  copy:
+    src: "gitconfig"
+    dest: "/etc/gitconfig"
+    owner: root
+    group: root
+  tags:
+    - gitconfig
+
 - name: Create the mirrors directory
   file:
     path: "/srv/mirrors"
