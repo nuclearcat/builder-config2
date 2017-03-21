@@ -78,7 +78,9 @@
     home: /home/buildslave
     shell: /bin/bash
     state: present
+    password: "{{ buildslave_password }}"
     system: yes
   tags:
     - install
     - user
+    - secrets
