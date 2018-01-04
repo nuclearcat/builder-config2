@@ -13,6 +13,7 @@
     update_cache: yes
   with_items:
     - bc
+    - bison
     - build-essential
     - ccache
     - cpio
@@ -20,6 +21,7 @@
     - curl
     - distcc
     - distcc-pump
+    - flex
     - git-core
     - htop
     - libelf-dev
