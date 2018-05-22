@@ -18,6 +18,10 @@ garagebuilders03
 garagebuilders04
 garagebuilders05
 
+[baylibre]
+builder-baylibre01
+
 [kernel-builders:children]
 collabora
 linaro
+baylibre
