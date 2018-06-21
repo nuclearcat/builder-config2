@@ -41,6 +41,9 @@
     - u-boot-tools
     - unzip
     - zlib1g:i386
+    - python-yaml
+    - pyhon-configparser
+    - python-jinja2
   tags:
     - install
     - packages
