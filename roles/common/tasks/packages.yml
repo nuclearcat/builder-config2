@@ -1,53 +1,4 @@
 ---
-- name: Add i386 architecture
-  command: dpkg --add-architecture i386
-  tags:
-    - arch
-    - install
-    - packages
-
-- name: Install common packages
-  apt:
-    pkg: "{{ item }}"
-    state: latest
-    update_cache: yes
-  with_items:
-    - bc
-    - bison
-    - build-essential
-    - ccache
-    - cpio
-    - cron
-    - curl
-    - distcc
-    - distcc-pump
-    - flex
-    - git-core
-    - htop
-    - libelf-dev
-    - libgcc1:i386
-    - libncurses5:i386
-    - libisl15
-    - libisl15:i386
-    - libssl-dev
-    - libstdc++6:i386
-    - lzop
-    - msmtp
-    - ncurses-dev
-    - python
-    - python-keyring
-    - python-pyelftools
-    - python-requests
-    - u-boot-tools
-    - unzip
-    - zlib1g:i386
-    - python-yaml
-    - python-configparser
-    - python-jinja2
-  tags:
-    - install
-    - packages
-
 - name: Install packages for Debian Jessie
   when:
     - ansible_distribution == "Debian"
@@ -57,8 +8,6 @@
     state: latest
     update_cache: yes
   with_items:
-    - gcc-4.9
-    - gcc-4.9-plugin-dev
     - openjdk-7-jre-headless
   tags:
     - install
@@ -72,10 +21,6 @@
     state: latest
     update_cache: yes
   with_items:
-    - gcc-5
-    - gcc-5-plugin-dev
-    - gcc-arm-linux-gnueabi
-    - gcc-arm-linux-gnueabihf
     - openjdk-8-jre-headless
   tags:
     - install
