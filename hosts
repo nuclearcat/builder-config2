@@ -21,7 +21,15 @@ garagebuilders05
 [baylibre]
 builder-baylibre01
 
+[azure]
+azure-kernelci1
+azure-kernelci2
+azure-kernelci3
+azure-kernelci4
+azure-kernelci5
+
 [kernel-builders:children]
 collabora
 linaro
 baylibre
+azure
