@@ -3,3 +3,4 @@
 - include: users.yml
 - include: docker.yml
 - include: k8s.yml
+- include: openrestyproxy.yml
