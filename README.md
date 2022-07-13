@@ -1,14 +1,31 @@
-# KernelCi Builder Config
+# KernelCI Builder Configuration
 
-Ansible-based configuration for Linux kernel builders.
+This reposotiry contains the Ansible-based configuration for KernelCI builder
+VMs.  They is used for building rootfs images, running bisections and run jobs
+in Kubernetes with dedicated credentials.
 
-Some necessary files/directories are missing from this repository since they
-contain secrets. In order to make the ansible commands work, those files are
-necessary and need to be linked in the repository.
+## Prerequisites
 
-The host names in the [hosts](./hosts) file are define and used only internally
-for the ansible configurations. The real host names and/or their IP addresses
-are stored in either the `group_vars/` or `host_vars/` directory.
+Some necessary files are missing from this repository since they contain
+secrets.  In order to make the Ansible commands work, those files are necessary
+and need to be linked in the repository.  They are included in the
+`builder-config-data` encrypted repository, which only the KernelCI SysAdmin
+team have access to.  When deploying your own instance of KernelCI, you may
+create a similar repository for your own use-case.
+
+The encrypted files for main KernelCI instance are set up this way:
+
+    cd ..
+    git clone https://github.com/kernelci/builder-config-data.git
+    git-crypt unlock
+    cd ../builder-config2
+    ln -s ../builder-config-data/host_vars
+    ln -s ../builder-config-data/group_vars
+
+The host names in the [hosts](./hosts) file are defined and used only
+internally for the Ansible configurations.  The real host names and/or their IP
+addresses are stored in either the `group_vars/` or `host_vars/` directory
+which are linked from the encrypted repository.
 
 ## Run the Configuration
 
