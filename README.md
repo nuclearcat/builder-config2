@@ -6,7 +6,11 @@ in Kubernetes with dedicated credentials.
 
 ## Prerequisites
 
-Some necessary files are missing from this repository since they contain
+First, install the Ansible tools.  On Debian systems:
+
+    sudo apt install ansible
+
+Then some necessary files are missing from this repository since they contain
 secrets.  In order to make the Ansible commands work, those files are necessary
 and need to be linked in the repository.  They are included in the
 `builder-config-data` encrypted repository, which only the KernelCI SysAdmin
