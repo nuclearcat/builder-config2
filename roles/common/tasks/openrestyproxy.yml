@@ -1,0 +1,66 @@
+---
+- name: Add apt key
+  apt_key:
+    url: https://openresty.org/package/pubkey.gpg
+    state: present
+  register: import_key
+
+- name: Add Ubuntu apt repository
+  apt_repository:
+    repo: "deb http://openresty.org/package/{{ ansible_distribution|lower }} {{ ansible_distribution_release }} main"
+    state: present
+  when: ansible_distribution == 'Ubuntu'
+
+- debug: msg="{{ansible_distribution}}"
+
+- name: Add Debian apt repository
+  apt_repository:
+    repo: "deb http://openresty.org/package/{{ ansible_distribution|lower }} {{ ansible_distribution_release }} openresty"
+    state: present
+  when: ansible_distribution == 'Debian'
+
+- name: Install OpenResty
+  apt:
+    name: openresty
+    state: present
+    update_cache: yes
+    install_recommends: no
+  notify: restart openresty
+
+- name: Create OpenResty cache directory
+  file:
+    path: '/data/nginx-cache'
+    state: directory
+    owner: nobody
+    group: nogroup
+    mode: 0775
+
+- name: Create OpenResty directory sites-available
+  file:
+    path: '/etc/openresty/sites-available'
+    state: directory
+
+- name: Create OpenResty directory snippets
+  file:
+    path: '/etc/openresty/snippets'
+    state: directory
+
+- name: Setup OpenResty as KernelCI file proxy
+  copy: src={{ item.src }} dest={{ item.dest }}
+  with_items:
+    - { src: 'openresty_default_site', dest: '/etc/openresty/sites-available/default' }
+    - { src: 'nginx.conf', dest: '/etc/openresty/nginx.conf' }
+    - { src: 'uri-caching.conf', dest: '/etc/openresty/snippets/uri-caching.conf' }
+
+- name: Create OpenResty directory sites-enabled
+  file:
+    path: '/etc/openresty/sites-enabled'
+    state: directory
+
+- name: Create symbolic link for default site
+  file:
+    src: "/etc/openresty/sites-available/default"
+    dest: "/etc/openresty/sites-enabled/default"
+    state: link
+  notify: restart openresty
+
