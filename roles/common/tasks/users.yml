@@ -121,6 +121,7 @@
     state: present
     password: "{{ buildslave_password }}"
     system: yes
+    uid: 996
   tags:
     - install
     - user
